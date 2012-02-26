@@ -57,6 +57,7 @@ describe User do
        user_with-duplicate_email = User.new(@attr)
        user_with-duplicate_email.should_not be_valid
  end
+end
    
       it "should reject email addresses identical up to case" do
         upcased_email = @attr[:email].upcase
