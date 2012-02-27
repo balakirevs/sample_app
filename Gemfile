@@ -6,7 +6,7 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'rake', '0.9.2.2'
+gem 'rake'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,7 +30,6 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails', '2.6.1'
   gem 'webrat', '0.7.1'
   gem 'spork', '0.9.0'
 end
