@@ -32,12 +32,16 @@ class User < ActiveRecord::Base
   end
   
   class << self
-    def User.authenticate(email, submitted_password)
+    def authenticate(email, submitted_password)
       user = find_by_email(email)
-      return nil if user.nil?
-      return user if user.has_password(submitted_password)
+      (user && user.has_password?(submitted_password)) ? user : nil
     end
-  end
+    
+    def authenticate_with_salt(id, cookies_salt)
+      user = find_by_id(id)
+      (user && user.salt == cookies_salt) ? user : nil
+    end
+  end 
   
   private
   
