@@ -8,6 +8,7 @@
 #  created_at         :datetime        not null
 #  updated_at         :datetime        not null
 #  encrypted_password :string(255)
+#  salt               :string(255)
 #
 
 require 'spec_helper'
@@ -41,7 +42,7 @@ describe User do
       long_name = "a" * 51
       long_name_user = User.new(@attr.merge(:name => long_name))
       long_name_user.should_not be_valid
-  end
+    end
 
     
      it "should accept valid email addresses" do

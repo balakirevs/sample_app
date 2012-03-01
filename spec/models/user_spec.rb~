@@ -157,9 +157,13 @@ describe User do
        User.authenticate(@attr[:email], "wrongpass").should be_nil
      end
      
-     it "should return nil for an email address with no user" don
+     it "should return nil for an email address with no user" do
        User.authenticate("bar@foo.com", @attr[:password]).should be_nil
-     end  
+     end
+     
+     it "should return the user on email/password match" do
+       User.authenticate(@attr[:email], @attr[:password]).should == @user
+     end    
    end
  end
 end     
