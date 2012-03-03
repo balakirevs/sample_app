@@ -15,7 +15,7 @@ gem 'will_paginate'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-    
+  gem 'jquery-rails'  
 
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -28,7 +28,7 @@ group :production do
   gem "pg"
 end
 
-gem 'jquery-rails'
+
 
 group :development do
   gem 'rspec-rails'
