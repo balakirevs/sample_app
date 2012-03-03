@@ -187,6 +187,6 @@ ul.users {
   margin-top: 1em;
 }
 
-.users li {
+ul.users li {
   list-style: none;
 }
