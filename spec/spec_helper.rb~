@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require 'faker'
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
@@ -73,5 +74,5 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 end
   def test_sign_in(user)
-    controller.sign_in = user
+    controller.current_user = user
   end  
