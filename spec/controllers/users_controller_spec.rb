@@ -16,8 +16,8 @@ describe UsersController do
     
       before(:each) do
         @user = test_sign_in(Factory(:user))
-        Factory(:user, :emai => "another@example.com")
-        Factory(:user, :emai => "another@example.net")
+        Factory(:user, :email => "another@example.com")
+        Factory(:user, :email => "another@example.net")
         
         30.times do
           Factory(:user, :email => Factory.next(:email))
@@ -125,6 +125,15 @@ describe UsersController do
        get :show, :id => @user
        response.should have_selector('td.sidebar', 
                                      :content => @user.microposts.count.to_s)
+     end
+     
+     describe "when signed in as another user" do
+     
+       it "should be successful" do
+         test_sign_in(Factory(:user, :email => Factory.next(:email)))
+         get :show, :id => @user
+         response.should be_success
+       end
      end  
   end    
 
